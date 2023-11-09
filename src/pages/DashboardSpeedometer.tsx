@@ -74,7 +74,7 @@ export default function DashboardSpeedometer() {
                 <hr className="mb-4.5 text-blue-gray-200"/>
                 <div className="w-full flex justify-center">
                     <ReactSpeedometer
-                        maxValue={50}
+                        maxValue={14}
                         value={dataMonitoring.ph.toFixed(2)}
                         currentValueText={
                             dataMonitoring.ph.toFixed(2) + " pH"
@@ -95,7 +95,7 @@ export default function DashboardSpeedometer() {
                 <hr className="mb-4.5 text-blue-gray-200"/>
                 <div className="w-full flex justify-center">
                     <ReactSpeedometer
-                        maxValue={50}
+                        maxValue={15}
                         value={dataMonitoring.do_.toFixed(2)}
                         currentValueText={
                             dataMonitoring.do_.toFixed(2) + " mg/L"
@@ -116,7 +116,7 @@ export default function DashboardSpeedometer() {
                 <hr className="mb-4.5 text-blue-gray-200"/>
                 <div className="w-full flex justify-center">
                     <ReactSpeedometer
-                        maxValue={50}
+                        maxValue={60}
                         value={dataMonitoring.bod.toFixed(2)}
                         currentValueText={
                             dataMonitoring.bod.toFixed(2) + " mg/L"
@@ -137,7 +137,7 @@ export default function DashboardSpeedometer() {
                 <hr className="mb-4.5 text-blue-gray-200"/>
                 <div className="w-full flex justify-center">
                     <ReactSpeedometer
-                        maxValue={50}
+                        maxValue={500}
                         value={dataMonitoring.cod.toFixed(2)}
                         currentValueText={
                             dataMonitoring.cod.toFixed(2) + " mg/L"
@@ -158,7 +158,7 @@ export default function DashboardSpeedometer() {
                 <hr className="mb-4.5 text-blue-gray-200"/>
                 <div className="w-full flex justify-center">
                     <ReactSpeedometer
-                        maxValue={50}
+                        maxValue={1000}
                         value={dataMonitoring.ct.toFixed(2)}
                         currentValueText={
                             dataMonitoring.ct.toFixed(2) + " mg/L"
@@ -179,10 +179,10 @@ export default function DashboardSpeedometer() {
                 <hr className="mb-4.5 text-blue-gray-200"/>
                 <div  className="w-full flex justify-center">
                     <ReactSpeedometer
-                        maxValue={50}
-                        value={dataMonitoring.depeth.toFixed(2)}
+                        maxValue={1}
+                        value={dataMonitoring.depeth}
                         currentValueText={
-                            dataMonitoring.depeth.toFixed(2) + " m"
+                            dataMonitoring.depeth + " m"
                         }
                         needleColor="red"
                         startColor="green"
@@ -200,7 +200,7 @@ export default function DashboardSpeedometer() {
                 <hr className="mb-4.5 text-blue-gray-200"/>
                 <div className="w-full flex justify-center">
                     <ReactSpeedometer
-                        maxValue={50}
+                        maxValue={100}
                         value={dataMonitoring.n.toFixed(2)}
                         currentValueText={
                             dataMonitoring.n.toFixed(2) + " mg/L"
@@ -284,7 +284,7 @@ export default function DashboardSpeedometer() {
                 <hr className="mb-4.5 text-blue-gray-200"/>
                 <div className="w-full flex justify-center">
                     <ReactSpeedometer
-                        maxValue={50}
+                        maxValue={500}
                         value={dataMonitoring.tss.toFixed(2)}
                         currentValueText={
                             dataMonitoring.tss.toFixed(2) + " mg/L"
@@ -312,7 +312,7 @@ export default function DashboardSpeedometer() {
                         }
                         needleColor="red"
                         startColor="green"
-                        maxSegmentLabels={10}
+                        maxSegmentLabels={100}
                         segments={5}
                         endColor="blue"
                         width={240}

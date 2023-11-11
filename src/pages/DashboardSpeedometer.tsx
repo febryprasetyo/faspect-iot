@@ -30,7 +30,7 @@ export default function DashboardSpeedometer() {
     const [dataMonitoring, setDataMonitoring] = useState(initSpeedometer)
     const stationCollectionRef = collection(db, `watermonitoring`)
     
-    useEffect(()=>{
+    useEffect(()=>{   
         const unsub = onSnapshot(stationCollectionRef, (snapshot) => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const data: any[] = []
@@ -43,7 +43,8 @@ export default function DashboardSpeedometer() {
             }
           });
           return ()=> unsub()
-    }, [])
+    }, [id, stationCollectionRef])
+    
     return (
         <div className={`grid ${user?.role_id == "adm" ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4': 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 '} gap-2.5 w-full`}>  
             <Card className="p-2">

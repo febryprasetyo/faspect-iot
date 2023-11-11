@@ -2,15 +2,16 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/favicon.png";
 // import DropdownUser from "./DropdownUser";
 import { useAuth } from "../store/auth";
+import DropdownUser from "./DropdownUser";
 
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
   setSidebarOpen: (arg0: boolean) => void;
 }) => {
-  const {user} = useAuth()
+  const {user, isLogin} = useAuth()
   return (
     <header className="sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none">
-      <div className="flex flex-grow items-center justify-center gap-x-3 py-4 px-4 shadow-2 md:px-6 2xl:px-11">
+      <div className="flex flex-grow items-center justify-between gap-x-3 py-4 px-4 shadow-2 md:px-6 2xl:px-11">
         { user?.role_id == "adm" && 
         (<div className="flex items-center gap-2 sm:gap-4 lg:hidden">
           {/* <!-- Hamburger Toggle BTN --> */}
@@ -64,20 +65,20 @@ const Header = (props: {
           </Link>
         </div>)
         }
-        
-        <div className="hidden sm:block">
-          { user?.role_id != "adm" && (
-            <div className="p-2 bg-black rounded">
-              <img className="w-32" src="/logoku.png" alt="" /> 
-            </div> )
-          }
-        </div> 
+        <div />
+        { user?.role_id != "adm" && (
+          <div className="hidden sm:block">
+              <div className="p-2 bg-black rounded">
+                <img className="w-32" src="/logoku.png" alt="" /> 
+              </div> 
+          </div> )
+        }
 
-        {/* <div className="flex items-center gap-3 2xsm:gap-7"> */}
+        <div className="flex items-center gap-3 2xsm:gap-7"> 
           {/* <!-- User Area --> */}
-          {/* <DropdownUser /> */}
+          { isLogin && (<DropdownUser />)}
           {/* <!-- User Area --> */}
-        {/* </div> */}
+        </div>
       </div>
     </header>
   );

@@ -1,19 +1,23 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 
 const DefaultLayout = () => {
   const { isLogin, user } = useAuth()
   const navigate = useNavigate()
+  const location = useLocation()
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(()=>{
-    if (!isLogin) {
-      navigate("/login")
+    // eslint-disable-next-line no-constant-condition
+    if (!location.pathname.includes("monitoring")) {
+      if (!isLogin) {
+        navigate("/login")
+      }      
     }
-  }, [isLogin, navigate])
+  }, [isLogin, location.pathname, navigate])
 
   return (
     <div className="dark:bg-boxdark-2 dark:text-bodydark">

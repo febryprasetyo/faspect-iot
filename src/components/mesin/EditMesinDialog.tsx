@@ -38,7 +38,6 @@ export const EditMesinDialog =({ isOpen, handleOpen, defaultData }: PropEditType
         }
     })
     const onSubmit = (data: PayloadDeviceType)=> {
-        console.log(data);
         data.id = defaultData.id
         muttation.mutate(data)
     }

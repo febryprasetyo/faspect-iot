@@ -29,7 +29,6 @@ export default function DashboardSpeedometer() {
     const { user } = useAuth()
     const [dataMonitoring, setDataMonitoring] = useState(initSpeedometer)
     const stationCollectionRef = collection(db, `watermonitoring`)
-    console.log(id);
     
     useEffect(()=>{
         const unsub = onSnapshot(stationCollectionRef, (snapshot) => {

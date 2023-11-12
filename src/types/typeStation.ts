@@ -34,6 +34,6 @@ export type TableStationType = {
     address : string
     province_name?: string
     city_name? : string
-    province_id: number
-    city_id: number
+    province_id: number | null
+    city_id: number | null
 }

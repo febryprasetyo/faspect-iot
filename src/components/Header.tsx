@@ -67,7 +67,7 @@ const Header = (props: {
         }
         <div />
         { user?.role_id != "adm" && (
-          <div className="hidden sm:block">
+          <div className="block">
               <div className="p-2 bg-black rounded">
                 <img className="w-32" src="/logoku.png" alt="" /> 
               </div> 

@@ -28,23 +28,22 @@ export default function DashboardSpeedometer() {
     const { user } = useAuth()
     const [dataMonitoring, setDataMonitoring] = useState(initSpeedometer)
     const [dataIsLoad, setDataIsLoad] = useState(false)
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
-    const [uuid, setUuid]:any = useState(0);
+    
     const topic = 'mqtt_ccb3aad79fe5';
     useEffect(()=>{
             // Connect to the MQTT broker
         const client = mqtt.connect('ws://103.84.206.53:9001');
 
-    // Subscribe to the MQTT topic
+        // Subscribe to the MQTT topic
         client.subscribe(topic);
 
         // Handle incoming messages
-        client.on('message', (topic, message) => {
+        client.on('message', (_topic, message) => {
             // Handle the incoming message
             const jsonString = JSON.parse(message.toString());
             const uuidx = jsonString['uuid'];
             if (uuidx == id) {
-              setUuid(id);
+            //   setUuid(id);
               setDataMonitoring(jsonString.data[jsonString.data.length - 1])
               setDataIsLoad(true)
             }

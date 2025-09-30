@@ -39,6 +39,7 @@ export default function DashboardSpeedometer() {
 
     // Handle incoming messages
     client.on("message", (_topic, message) => {
+       console.log('✅ Connected to Mosquitto WS')
       // Handle the incoming message
       const jsonString = JSON.parse(message.toString());
       const uuidx = jsonString["uuid"];
